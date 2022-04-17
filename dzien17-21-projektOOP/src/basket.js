@@ -6,6 +6,10 @@ class Basket {
         this.totalValue = 0;
     };
 
+    clear(){
+        this.items.length = 0;
+    }
+
     //Metody w klasie Basket
     add(item){
         this.items.push(item);
@@ -21,12 +25,17 @@ class Basket {
         return this.items.reduce((acc, item) => acc + item.price, 0)
     };
 
-    //Wyświetlanie wszystkich elementów koszyka
-    showBasket(){
-        this.items.forEach((item, index) => {
-            console.log(`${index+1} - ${item.name} - ${item.price.toFixed(2)}zł`);
-        });
+    //Funkcja zwracajaca obiekt z id oraz elementami koszyka: index - nazwa - cena
+    getBasketSummary(){
+      return this.items
+          .map((product, index) => {
+              return {
+                  id: index + 1,
+                  text: `${index+1} - ${product.name} - ${product.price.toFixed(2)}zł`,
+              };
+          });
     };
+
 
     //Usuwanie elementu o numerze ktory wyswietlil sie klientowi (dlatego -1)
     remove(no){
@@ -50,25 +59,3 @@ class Product {
         this.price = newPrice;
     };
 };
-
-
-
-
-
-//Tworzymy instancję klasy Basket
-const shopBasket = new Basket();
-
-//Tworzymy instancję (produkty) z klasy Product
-const oranges = new Product("Pomarańcze Luz", 7.55);
-const cucumbers = new Product("Ogórek duży", 8.2);
-
-
-//Dodajemy produkty do koszyka
-shopBasket.add(oranges);
-shopBasket.add(cucumbers);
-shopBasket.add(oranges);
-
-console.log(shopBasket);
-shopBasket.showBasket();
-shopBasket.remove(1);
-shopBasket.showBasket();
