@@ -67,3 +67,6 @@ const buyAllProducts = () => {
 };
 
 buyAllBtn.addEventListener("click", buyAllProducts)
+
+//Wywolujemy aby pokazalo koszyk z localstorage od razu
+createBasketUl();

@@ -2,23 +2,27 @@
 class Basket {
     //Tu nie trzeba pisac constructor gdyz on z automatu jest dolozony przez JS
     constructor() {
-        this.items = [];
-        this.totalValue = 0;
+        const ls = this.loadFromLocalStorage();
+        this.items = ls ? ls : [];
+
+        // Dwie kreski sprawdzaja true/false
+        // this.items = ls || [];
+        //Dwa znaki sprawdzaja czy ls to null lub undyfined
+        // this.items = ls ?? [];
     };
 
+    //Czyszczenie koszyka
     clear(){
         this.items.length = 0;
+        this.saveToLocalStorage();
     }
 
     //Metody w klasie Basket
     add(item){
         this.items.push(item);
-        this.addToTotalValue(item.price);
+        this.saveToLocalStorage();
     };
 
-    addToTotalValue(newPrice){
-        this.totalValue += newPrice
-    };
 
     //Całkowita wartość koszyka
     getTotalValue(){
@@ -39,10 +43,28 @@ class Basket {
 
     //Usuwanie elementu o numerze ktory wyswietlil sie klientowi (dlatego -1)
     remove(no){
-        this.items.splice(no -1, 1)
+        this.items.splice(no -1, 1);
+        this.saveToLocalStorage();
+    };
 
+
+    //Zapisywanie w localstorage, dodajemy do kazdej metody ktora zmienia items w Baskecie
+    saveToLocalStorage(){
+       localStorage.setItem("basket-items", JSON.stringify(this.items));
 
     };
+
+    loadFromLocalStorage(){
+        // const itemJSON = localStorage.getItem("basket-items");
+        // if (itemJSON === null){
+        //     return []
+        // } else {
+        //     return JSON.parse(itemJSON);
+        // };
+
+        return JSON.parse(localStorage.getItem("basket-items"));
+    }
+
 };
 
 

@@ -3,12 +3,20 @@ const nameInput = document.querySelector("[name = product-name]");
 const priceInput = document.querySelector("[name = product-price]");
 const productsUl = document.querySelector(".products-list");
 
-const addProductToShop = (event) => {
-    event.preventDefault();
 
-    const name = nameInput.value;
-    const price = Number(priceInput.value);
+//Funkcja zapisujaca dodane produkty do localStorage
+const saveProductToLocalStorage = (name, price) => {
+    const productsList = JSON.parse(localStorage.getItem("shop-products")) ?? [];
+    productsList.push({
+        name: name,
+        price: price,
+    });
+    localStorage.setItem("shop-products", JSON.stringify(productsList));
+};
 
+
+//Funkcja tworzaca z stworzonego produktu nowy element li i dodajacy go do ul
+const addProductToShop = (name, price) => {
     const newLi = document.createElement("li");
     const newStrong = document.createElement("strong");
     newStrong.innerText = name;
@@ -27,9 +35,38 @@ const addProductToShop = (event) => {
 
     productsUl.appendChild(newLi);
 
-
-
     nameInput.value = "";
-    priceInput.value = "";}
+    priceInput.value = ""
 
-addProductForm.addEventListener("submit", addProductToShop);
+};
+
+
+
+const loadProductsFromLocalStorage = () => {
+    const productsList = JSON.parse(localStorage.getItem("shop-products")) ?? [];
+
+    productsList.forEach((product) => {
+       addProductToShop(product.name, product.price);
+    });
+
+};
+
+
+
+//saveProductToLocalStorage musi byc tu bo jak damy w addproductToshop to bedzie sie dublować
+const handleAddProductFormSubmit = (event) => {
+    event.preventDefault();
+
+    const nameFromInput = nameInput.value;
+    const priceFromInput = Number(priceInput.value);
+
+    addProductToShop(nameFromInput, priceFromInput);
+    saveProductToLocalStorage(nameFromInput, priceFromInput);
+};
+
+
+
+addProductForm.addEventListener("submit", handleAddProductFormSubmit);
+
+
+loadProductsFromLocalStorage();
