@@ -19,7 +19,7 @@ async function showFilesInDirectory(path) {
         const myFiles = await readdir(path);
         for (const file of myFiles) {
             const fileStat = await stat(`${path}/${file}`);
-            console.log(file);
+            console.log(file, `${fileStat.isDirectory() ? 'directory' : 'file'}`);
             if(fileStat.isDirectory()){
                 await showFilesInDirectory(`${path}/${file}`)
             }
@@ -30,3 +30,5 @@ async function showFilesInDirectory(path) {
 };
 
 showFilesInDirectory(startPath);
+
+console.log(file, `${fileStat.isDirectory() ? 'directory' : 'file'}`);
