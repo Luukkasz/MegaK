@@ -1,7 +1,7 @@
 const {readFile, writeFile, appendFile} = require('fs').promises;
 
 
-// readFile('./index.js', 'utf8', (err, data) => {
+// readFile('./kompresowanie.js', 'utf8', (err, data) => {
 //     if(err === null) {
 //         console.log(data);
 //     } else {

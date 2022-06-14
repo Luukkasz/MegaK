@@ -3,7 +3,7 @@
 //
 // (async () => {
 //   try {
-//     const data = await readFile('./index.js', 'utf8');
+//     const data = await readFile('./kompresowanie.js', 'utf8');
 //     console.log(data);
 //   } catch(err) {
 //     console.log('Oh no', err);
@@ -18,7 +18,7 @@
 
  const readFilePromised = promisify(readFile);
 
- readFilePromised('./index.js', 'utf8')
+ readFilePromised('./kompresowanie.js', 'utf8')
  .then(data => {
     console.log(data);
   })
@@ -34,7 +34,7 @@
  *
  * const {readFile} = require('fs');
 
- readFile('./index.js', 'utf8', (error, data) => {
+ readFile('./kompresowanie.js', 'utf8', (error, data) => {
   if (error === null) {
     console.log(data);
   } else {

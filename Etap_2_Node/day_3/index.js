@@ -13,7 +13,7 @@ const {promisify} = require('util');
 
 
 // const readFilePromised = promisify(readFile);
-// readFilePromised('./index.js', 'utf8')
+// readFilePromised('./kompresowanie.js', 'utf8')
 //     .then(data => console.log(data))
 //     .catch(err => console.log('Oh no', err));
 
@@ -21,7 +21,7 @@ const {promisify} = require('util');
 //promisyfy zwraca funkcje a potem wywolujemy kolejna z argumentami
 // (async () => {
 //     try {
-//         const data = await promisify(readFile)('./index.js', 'utf8');
+//         const data = await promisify(readFile)('./kompresowanie.js', 'utf8');
 //         console.log(data);
 //     } catch (err) {
 //         console.log('Oh no!', err);
@@ -32,7 +32,7 @@ const {promisify} = require('util');
 //Skorzystanie z obiektu 'fs'.promises
 (async () => {
     try {
-        const data = await readFile('./index.js', 'utf8');
+        const data = await readFile('./kompresowanie.js', 'utf8');
         console.log(data);
     } catch (err) {
         console.log('Oh no!', err);
