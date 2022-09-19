@@ -1,5 +1,5 @@
+const {TodoRepository} = require("./repositories/todo.repository");
 const {pool} = require("./utills/db");
-const {TodoRecord} = require("./records/todo.records");
 
 
 (async() => {
@@ -13,9 +13,10 @@ const {TodoRecord} = require("./records/todo.records");
     //
     // await firstTodoItem.delete();
 
-    const foundTodo = await TodoRecord.find('f0935dab-2b10-45d5-8c9f-1577a685fad6');
-    foundTodo.title = 'Zrobic nalesniki';
-    await foundTodo.update()
+    const foundTodo = await TodoRepository.find('f0935dab-2b10-45d5-8c9f-1577a685fad6')
+    console.log(foundTodo)
+    await TodoRepository.delete(foundTodo);
+
 
     await pool.end();
 })();
