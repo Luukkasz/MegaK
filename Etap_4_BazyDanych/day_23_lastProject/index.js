@@ -1,10 +1,13 @@
 const express = require('express');
+require('express-async-errors');
 const methodOverride = require('method-override');
 const { handleError } = require("./utils/error");
 const { homeRouter } = require("./routers/home");
 const { childRouter } = require("./routers/child");
 const { giftRouter } = require("./routers/gift");
 const hbs = require('express-handlebars');
+require('./utils/db');
+const {handlebarsHelpers} = require("./utils/handlebars-helpers");
 
 
 const app = express();
@@ -21,7 +24,7 @@ app.use(express.static('public'));
 app.use(express.json()); //Content-type: application/json
 app.engine('.hbs', hbs.engine({
     extname: '.hbs',
-    helpers: 'handlebarsHelpers', // dodatkowe funkcjonalnosci, ktore chcemy dodac do Handlebarsow
+    helpers: handlebarsHelpers, // dodatkowe funkcjonalnosci, ktore chcemy dodac do Handlebarsow
 }));
 app.set('view engine', '.hbs');
 
