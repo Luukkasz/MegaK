@@ -1,0 +1,46 @@
+<div class="container">
+    <h2 class="gray-header">Klient: {{client.name}}</h2>
+</div>
+<div class="container one-customer">
+    <table>
+        <tbody>
+        <tr>
+            <th class="gray-header">
+                Email:
+            </th>
+            <td>
+                <a href="mailto:{{client.mail}}" target="_blank">{{client.mail}}</a>
+            </td>
+        </tr>
+        <tr>
+            <th class="gray-header">
+                Data następnego kontaktu:
+            </th>
+            <td>
+                {{client.nextContactAt}}
+            </td>
+        </tr>
+        {{#if client.notes}}
+            <tr>
+                <th class="gray-header">
+                    Notatka:
+                </th>
+                <td>
+                    {{client.notes}}
+                </td>
+            </tr>
+        {{/if}}
+        </tbody>
+    </table>
+
+    <p>
+        <form method="GET" action="/client/form/edit/{{client.id}}">
+            <button type="submit">Edytuj dane</button>
+        </form>
+    </p>
+
+    <p>
+        {{> go-to-clients}}
+    </p>
+
+</div>
