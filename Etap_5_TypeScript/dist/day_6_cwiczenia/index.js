@@ -58,4 +58,5 @@ if (user !== '') {
     user = new User(user);
 }
 console.log(user);
+// test git-a
 //# sourceMappingURL=index.js.map
