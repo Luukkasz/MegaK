@@ -12,11 +12,12 @@ import {Entries} from "./types/entries";
 
 export class CookieMakerApp {
     private app: Application;
-    private data = {
+    public readonly data = {
             COOKIE_BASES,
             COOKIE_ADDONS,
     }
 
+    private readonly routers = [HomeRouter, ConfiguratorRouter];
 
     constructor() {
         this._configureApp();
