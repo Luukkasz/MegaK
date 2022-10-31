@@ -1,13 +1,13 @@
-const express = require('express');
-require('express-async-errors');
-const methodOverride = require('method-override');
-const { handleError } = require("./utils/error");
-const { homeRouter } = require("./routers/home");
-const { childRouter } = require("./routers/child");
-const { giftRouter } = require("./routers/gift");
-const hbs = require('express-handlebars');
-require('./utils/db');
-const {handlebarsHelpers} = require("./utils/handlebars-helpers");
+import * as express from "express";
+import 'express_async_errors'
+import * as methodOverride from "method-override";
+import {handleError} from "./utils/error";
+import {homeRouter} from "./routers/home";
+import {childRouter} from "./routers/child";
+import {giftRouter} from "./routers/gift";
+import * as hbs from "express-handlebars";
+import 'utils'
+import {handlebarsHelpers} from "./utils/handlebars-helpers";
 
 
 const app = express();
