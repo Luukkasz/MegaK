@@ -1,13 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {CryptoPrize} from "./components/CryptoPrize/CryptoPrize";
+import {GiftsView} from "./views/GiftsView";
+import { Route, Routes} from "react-router-dom";
+import {Header} from "./components/Header/Header";
+import {NotFoundView} from "./views/NotFoundView";
 
 function App() {
   return (
-    <div className="App">
-      <CryptoPrize />
-    </div>
+      <>
+          <Header />
+          <Routes>
+              <Route path="/gift" element={<GiftsView/>} />
+              <Route path="*" element={<NotFoundView/>} />
+          </Routes>
+      </>
   );
 }
 

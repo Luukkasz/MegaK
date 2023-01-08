@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "types": [
+        "../../../Etap_5_TypeScript/react_listaMikolaja/types"
+      ]
+    }
+  }
+}
