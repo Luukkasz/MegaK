@@ -1,12 +1,12 @@
+import './utils/db';
+import 'express-async-errors';
 import * as express from "express";
-import 'express_async_errors'
 import * as methodOverride from "method-override";
 import {handleError} from "./utils/error";
 import {homeRouter} from "./routers/home";
 import {childRouter} from "./routers/child";
 import {giftRouter} from "./routers/gift";
 import * as hbs from "express-handlebars";
-import 'utils'
 import {handlebarsHelpers} from "./utils/handlebars-helpers";
 
 
@@ -33,6 +33,6 @@ app.use('/child', childRouter)
 app.use('/gift', giftRouter)
 app.use(handleError);
 
-app.listen(3000, 'localhost', () => {
-    console.log('Program działa na adresie http://localhost:3000');
+app.listen(3002, 'localhost', () => {
+    console.log('Program działa na adresie http://localhost:3002');
 })
