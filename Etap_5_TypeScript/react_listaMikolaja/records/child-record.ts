@@ -2,14 +2,15 @@ import {ValidationError} from "../utils/error";
 import {v4 as uuid} from "uuid";
 import {pool} from "../utils/db";
 import {FieldPacket} from "mysql2";
+import {ChildEntity} from "../types";
 
 
-export class ChildRecord {
+export class ChildRecord implements ChildEntity{
     public id?: string
     public name: string
     public giftId: string
 
-    constructor(obj: ChildRecord) {
+    constructor(obj: ChildEntity) {
         if (!obj.name || obj.name.length < 3 || obj.name.length > 25) {
             throw new ValidationError('Imię musi miec od 3 do 55 znaków.')
         }
