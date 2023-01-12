@@ -1,0 +1,39 @@
+{
+  "name": "etap_7_advancednode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "start:dev": "tsnd index.ts",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^29.2.5",
+    "@types/method-override": "^0.0.32",
+    "@types/node": "^18.11.4",
+    "@types/uuid": "^8.3.4",
+    "ts-jest": "^29.0.4"
+  },
+  "dependencies": {
+    "cookie": "^0.4.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "express-handlebars": "^6.0.6",
+    "method-override": "^3.0.0",
+    "mongodb": "^4.10.0",
+    "mysql2": "^2.3.3",
+    "parser": "^0.1.4",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "uuid": "^9.0.0"
+  }
+}
