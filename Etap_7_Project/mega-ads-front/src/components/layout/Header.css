@@ -1,0 +1,22 @@
+header {
+    height: 50px;
+    background-color: #6200EE;
+    padding: 12px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.search {
+    display: flex;
+}
+
+.search input {
+    margin-right: 5px;
+}
