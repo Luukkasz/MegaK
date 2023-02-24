@@ -13,7 +13,7 @@ app.use(express.json())
 // Routes....
 
 app.get('/', async (req,res) => {
-    throw new ValidationError('Daamn!')
+    res.send('Działamy' )
 })
 
 app.use(handleError);
