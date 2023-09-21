@@ -11,7 +11,6 @@ export const Map = () => {
 
     useEffect(() => {
         console.log('Make request to search for', search)
-
     }, [search])
 
     return (
