@@ -35,3 +35,37 @@ test('AdRecord.findAll returns smaller amount od data', async () => {
     expect((ads[0] as AdEntity).price).toBeUndefined()
     expect((ads[0] as AdEntity).description).toBeUndefined()
 })
+
+test('AdRecord.insert returns new UUID', async () => {
+    const ad = new AdRecord({
+        name: 'Test Name',
+        description: 'aaa',
+        lat: 1,
+        lon: 2,
+        url: 'www.wp.pl',
+        price: 0,
+    });
+
+    await ad.insert()
+
+    expect(ad.id).toBeDefined()
+    expect(typeof ad.id).toBe('string')
+})
+
+test('AdRecord.insert inserts data to database', async () => {
+    const ad = new AdRecord({
+        name: 'Test Name',
+        description: 'aaa',
+        lat: 1,
+        lon: 2,
+        url: 'www.wp.pl',
+        price: 0,
+    });
+
+    await ad.insert()
+
+    const foundAd = await AdRecord.getOne((ad.id))
+
+    expect(foundAd).toBeTruthy()
+    expect(foundAd.id).toBe(ad.id)
+})
