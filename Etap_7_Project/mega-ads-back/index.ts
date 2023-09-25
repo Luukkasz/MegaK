@@ -16,7 +16,6 @@ app.use(rateLimit({
     limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
 }))
 
-// Routes....
 app.use('/ad', adRouter)
 
 app.get('/', async (req,res) => {
