@@ -13,6 +13,7 @@ export const adRouter = Router()
     })
 
     .post('/', async (req,res) => {
+        console.log('req', req)
         const ad = new AdRecord(req.body)
         await ad.insert()
         res.json(ad)

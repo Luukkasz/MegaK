@@ -17,6 +17,7 @@ export class AdRecord implements AdEntity {
     lon: number;
     constructor(obj: NewAdEntity) {
         if (!obj.name || obj.name.length > 100) {
+            console.log(obj.name)
             throw new ValidationError('Nazwa ogłoszenia nie może być pusta, ani przekraczać 100 znaków.')
         }
 
