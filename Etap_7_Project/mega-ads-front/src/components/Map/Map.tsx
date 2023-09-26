@@ -29,7 +29,7 @@ export const Map = () => {
                     attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
                 />
 
-                {ads.map(ad => (
+                {!!ads.length && ads.map(ad => (
                     <Marker key={ad.id} position={[ad.lat, ad.lon]}>
                         <Popup>
                             <SingleAd id={ad.id} />
@@ -42,5 +42,3 @@ export const Map = () => {
         </div>
     )
 }
-
-// 53.0107907,18.6147001
