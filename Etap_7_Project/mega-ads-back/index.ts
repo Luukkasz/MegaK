@@ -4,11 +4,12 @@ import 'express-async-errors'
 import {handleError, ValidationError} from "./utils/erros";
 import { rateLimit } from 'express-rate-limit'
 import {adRouter} from "./routers/ad.router";
+import {config} from "./config/config";
 
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: config.corsOrigin,
 }));
 app.use(express.json())
 app.use(rateLimit({
@@ -17,6 +18,7 @@ app.use(rateLimit({
 }))
 
 const router = Router()
+
 router.use('/ad', adRouter)
 
 app.use('/api', router)

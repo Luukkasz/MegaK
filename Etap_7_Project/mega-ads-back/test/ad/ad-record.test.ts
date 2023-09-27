@@ -20,4 +20,4 @@ test ('Validates invalid price', () => {
     expect(() => new AdRecord({...defaultObj, price: 999999999})).toThrow('Cena nie może być mniejsza niż 0 lub większa niż 9 999 999.')
 })
 
-// @TODO: Check all the validations
+// @TODO: Check all  the validations
